@@ -1,0 +1,797 @@
+/* =====================================================
+   BIRTHDAY WEBSITE - COMPREHENSIVE CSS STYLESHEET
+   13 Major Features with Animations & Effects
+   ===================================================== */
+
+/* 1. ROOT VARIABLES - PASTEL COLOR PALETTE */
+:root {
+  --pastel-pink: #FFB6D9;
+  --pastel-lavender: #E6D7FF;
+  --pastel-blue: #B3E5FC;
+  --pastel-cream: #FFF8DC;
+  --pastel-gold: #FFD700;
+  --pastel-mint: #B2FFDA;
+  --pastel-peach: #FFD4A3;
+  --primary-text: #333333;
+  --secondary-text: #666666;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --medium-shadow: rgba(0, 0, 0, 0.2);
+  --glow-color: rgba(255, 182, 217, 0.6);
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 2. LOADING ANIMATIONS */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--pastel-lavender);
+  border-top: 5px solid var(--pastel-pink);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, var(--pastel-cream), var(--pastel-gold), var(--pastel-cream));
+  background-size: 200px 100%;
+}
+
+/* 3. GLASSMORPHIC NAVIGATION */
+nav {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 8px 32px var(--light-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--primary-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+nav a:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-gold));
+  transition: var(--transition-smooth);
+}
+
+nav a:hover:after {
+  width: 100%;
+}
+
+/* 4. HERO SECTION WITH FLOATING ANIMATIONS */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-15px); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(15px); }
+}
+
+.hero-section {
+  background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-lavender), var(--pastel-pink));
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 2rem;
+  box-shadow: 0 20px 60px var(--medium-shadow);
+}
+
+.hero-section::before {
+  content: '🎉';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.1;
+  animation: floatUp 6s ease-in-out infinite;
+  left: 10%;
+}
+
+.hero-section::after {
+  content: '🎂';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.1;
+  animation: floatUp 6s ease-in-out infinite 2s;
+  right: 10%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* 5. HANDWRITTEN-STYLE LETTERS */
+@font-face {
+  font-family: 'HandWritten';
+  src: url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+}
+
+.handwritten-letter {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--primary-text);
+  background: var(--pastel-cream);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px var(--light-shadow);
+  max-width: 500px;
+  line-height: 1.8;
+  border-left: 5px solid var(--pastel-pink);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.handwritten-letter:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--medium-shadow);
+}
+
+.letter-date {
+  text-align: right;
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.letter-signature {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--pastel-pink);
+  margin-top: 1rem;
+}
+
+/* 6. MEMORY GALLERY CARDS */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+  margin: 2rem;
+}
+
+.gallery-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--light-shadow);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px var(--medium-shadow);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.1);
+  filter: brightness(0.9);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 182, 217, 0.8);
+  opacity: 0;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.gallery-description {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* 7. SPECIAL CARDS WITH ICONS */
+.special-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+  margin: 2rem;
+}
+
+.special-card {
+  background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-peach));
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--light-shadow);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.special-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-blue));
+}
+
+.special-card:nth-child(3) {
+  background: linear-gradient(135deg, var(--pastel-mint), var(--pastel-blue));
+}
+
+.special-card:nth-child(4) {
+  background: linear-gradient(135deg, var(--pastel-gold), var(--pastel-peach));
+}
+
+.special-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: floatRight 20s linear infinite;
+}
+
+.special-card:hover {
+  transform: translateY(-10px) rotateZ(2deg);
+  box-shadow: 0 20px 50px var(--medium-shadow);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 600;
+  margin: 1rem 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-text {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 8. SURPRISE BUTTON WITH CAKE/CONFETTI EFFECTS */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300px) rotateZ(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.surprise-button {
+  background: linear-gradient(135deg, var(--pastel-gold), var(--pastel-pink));
+  border: none;
+  color: white;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.surprise-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+}
+
+.surprise-button:active {
+  animation: explode 0.4s ease-out;
+}
+
+.surprise-button::before {
+  content: '🎂';
+  position: absolute;
+  left: 1rem;
+  font-size: 1.5rem;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  animation: confetti-fall 3s ease-out forwards;
+}
+
+.confetti-piece-1 {
+  background: var(--pastel-pink);
+  left: 20%;
+}
+
+.confetti-piece-2 {
+  background: var(--pastel-gold);
+  left: 40%;
+}
+
+.confetti-piece-3 {
+  background: var(--pastel-lavender);
+  left: 60%;
+}
+
+.confetti-piece-4 {
+  background: var(--pastel-blue);
+  left: 80%;
+}
+
+/* 9. FOOTER */
+footer {
+  background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-pink));
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+  border-radius: 30px 30px 0 0;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  opacity: 0.95;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 0 0;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.social-icon:hover {
+  transform: scale(1.2) rotateZ(10deg);
+}
+
+/* 10. CURSOR SPARKLES */
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.2rem;
+  animation: sparkle-fade 0.8s ease-out forwards;
+}
+
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+/* 11. FLOATING HEARTS ANIMATION */
+@keyframes float-hearts {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) rotateZ(20deg);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: fixed;
+  font-size: 1.5rem;
+  animation: float-hearts 2s ease-out forwards;
+  pointer-events: none;
+}
+
+/* 12. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .special-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .surprise-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+
+  footer {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .handwritten-letter {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  nav {
+    padding: 1rem;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+}
+
+/* 13. ADDITIONAL ANIMATIONS & EFFECTS */
+
+/* Glowing effect */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--glow-color);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--glow-color);
+  }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Bouncing animation */
+@keyframes bouncing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.bouncing {
+  animation: bouncing 1s ease-in-out infinite;
+}
+
+/* Pulsing animation */
+@keyframes pulsing {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
+
+.pulsing {
+  animation: pulsing 1.5s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Rotate animation */
+@keyframes rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* Scaleup animation */
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-up {
+  animation: scaleUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, var(--pastel-cream), var(--pastel-blue));
+  color: var(--primary-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pastel-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pastel-pink);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pastel-lavender);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--pastel-pink);
+  color: white;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Additional button styling */
+button {
+  transition: var(--transition-smooth);
+}
+
+button:focus {
+  outline: 2px solid var(--pastel-pink);
+  outline-offset: 2px;
+}
+
+/* Link styling */
+a {
+  color: var(--pastel-pink);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--pastel-lavender);
+  text-decoration: underline;
+}
+
+/* ===== END OF STYLESHEET ===== */
