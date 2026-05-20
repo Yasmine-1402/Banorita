@@ -2,11 +2,141 @@
 // PAGE INITIALIZATION
 // ===================================
 document.addEventListener('DOMContentLoaded', function() {
+    initializeEnvelope();
+    initializeCarousel();
     initializeAudio();
     initializeSparkles();
     initializeSurpriseButton();
     initializeScrollAnimations();
 });
+
+// ===================================
+// ENVELOPE INTERACTION
+// ===================================
+function initializeEnvelope() {
+    const envelopeOverlay = document.getElementById('envelopeOverlay');
+    const envelope = document.querySelector('.envelope');
+    
+    if (envelope && envelopeOverlay) {
+        envelope.addEventListener('click', openEnvelope);
+        envelopeOverlay.addEventListener('click', openEnvelope);
+    }
+    
+    function openEnvelope() {
+        envelopeOverlay.classList.add('opening');
+        setTimeout(() => {
+            envelopeOverlay.classList.add('opened');
+        }, 400);
+    }
+}
+
+// ===================================
+// CAROUSEL - SWIPEABLE MEMORIES
+// ===================================
+let currentSlide = 0;
+let startX = 0;
+let isDragging = false;
+
+function initializeCarousel() {
+    const carouselTrack = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const slides = document.querySelectorAll('.memory-slide');
+    
+    if (!carouselTrack) return;
+    
+    const totalSlides = slides.length;
+    
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = `dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    
+    function updateCarousel() {
+        const offset = -currentSlide * 100;
+        carouselTrack.style.transform = `translateX(${offset}%)`;
+        
+        // Update dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index % totalSlides;
+        if (currentSlide < 0) currentSlide = totalSlides - 1;
+        updateCarousel();
+    }
+    
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+    
+    function prevSlide() {
+        goToSlide(currentSlide - 1);
+    }
+    
+    // Button controls
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    
+    // Touch/Swipe controls
+    carouselTrack.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+    
+    carouselTrack.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+    });
+    
+    carouselTrack.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (diff > 50) {
+            nextSlide();
+        } else if (diff < -50) {
+            prevSlide();
+        }
+    });
+    
+    // Mouse drag support
+    carouselTrack.addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+        isDragging = true;
+    });
+    
+    carouselTrack.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+    });
+    
+    carouselTrack.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const endX = e.clientX;
+        const diff = startX - endX;
+        
+        if (diff > 50) {
+            nextSlide();
+        } else if (diff < -50) {
+            prevSlide();
+        }
+    });
+    
+    carouselTrack.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+}
 
 // ===================================
 // AUDIO HANDLING

@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Nour 🤍</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-modern.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ENVELOPE OVERLAY -->
+    <div class="envelope-overlay" id="envelopeOverlay">
+        <div class="envelope-container">
+            <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-text">
+                    <p class="to-text">To: SOKR   FROM : LOZ 💌</p>
+                    <p class="instruction">Click to open...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
@@ -112,70 +127,77 @@
                 <h2 class="section-title">
                     <span class="title-icon">📸</span> Our Memories
                 </h2>
-                <div class="memories-grid">
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);">
-                            <span class="memory-icon">🎬</span>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-1">
+                                <span class="memory-icon">🎬</span>
+                            </div>
+                            <p class="memory-caption">Movies Together</p>
+                            <p class="memory-subcaption">TVD & Money Heist nights</p>
                         </div>
-                        <p class="memory-caption">Movies Together</p>
-                        <p class="memory-subcaption">TVD & Money Heist nights</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                            <span class="memory-icon">🚴</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-2">
+                                <span class="memory-icon">🚴</span>
+                            </div>
+                            <p class="memory-caption">Bike Rides</p>
+                            <p class="memory-subcaption">Wind in our hair, freedom in our hearts</p>
                         </div>
-                        <p class="memory-caption">Bike Rides</p>
-                        <p class="memory-subcaption">Wind in our hair, freedom in our hearts</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);">
-                            <span class="memory-icon">🎭</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-3">
+                                <span class="memory-icon">🎭</span>
+                            </div>
+                            <p class="memory-caption">Drama Moments</p>
+                            <p class="memory-subcaption">Our greatest performances</p>
                         </div>
-                        <p class="memory-caption">Drama Moments</p>
-                        <p class="memory-subcaption">Our greatest performances</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <span class="memory-icon">🗺️</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-4">
+                                <span class="memory-icon">🗺️</span>
+                            </div>
+                            <p class="memory-caption">Adventures</p>
+                            <p class="memory-subcaption">Exploring new places together</p>
                         </div>
-                        <p class="memory-caption">Adventures</p>
-                        <p class="memory-subcaption">Exploring new places together</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <span class="memory-icon">📱</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-5">
+                                <span class="memory-icon">📱</span>
+                            </div>
+                            <p class="memory-caption">TikToks</p>
+                            <p class="memory-subcaption">Viral moments just for us</p>
                         </div>
-                        <p class="memory-caption">TikToks</p>
-                        <p class="memory-subcaption">Viral moments just for us</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                            <span class="memory-icon">🌙</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-6">
+                                <span class="memory-icon">🌙</span>
+                            </div>
+                            <p class="memory-caption">Late-Night Talks</p>
+                            <p class="memory-subcaption">The deepest conversations</p>
                         </div>
-                        <p class="memory-caption">Late-Night Talks</p>
-                        <p class="memory-subcaption">The deepest conversations</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                            <span class="memory-icon">📷</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-1">
+                                <span class="memory-icon">📷</span>
+                            </div>
+                            <p class="memory-caption">Amazing Photos You Take Of Me</p>
+                            <p class="memory-subcaption">You always capture my best moments</p>
                         </div>
-                        <p class="memory-caption">Amazing Photos You Take Of Me</p>
-                        <p class="memory-subcaption">You always capture my best moments</p>
-                    </div>
 
-                    <div class="memory-card">
-                        <div class="memory-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                            <span class="memory-icon">😂</span>
+                        <div class="memory-card memory-slide">
+                            <div class="memory-image vintage-bg-2">
+                                <span class="memory-icon">😂</span>
+                            </div>
+                            <p class="memory-caption">Silly Photos I Take Of You</p>
+                            <p class="memory-subcaption">But they make us laugh the hardest</p>
                         </div>
-                        <p class="memory-caption">Silly Photos I Take Of You</p>
-                        <p class="memory-subcaption">But they make us laugh the hardest</p>
                     </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="prevBtn">❮</button>
+                    <div class="carousel-dots" id="dotsContainer"></div>
+                    <button class="carousel-btn next" id="nextBtn">❯</button>
                 </div>
             </div>
         </section>
@@ -270,11 +292,23 @@
                 <span>💕</span>
             </div>
         </footer>
-    </div>
+        <!-- Vintage Message Card Modal -->
+        <div class="reminder-modal" id="reminderModal">
+            <div class="reminder-card">
+                <button class="modal-close" id="modalClose">×</button>
+                <div class="reminder-card-header">💌 A Little Reminder</div>
+                <div class="reminder-message" id="reminderMessage">
+                    <!-- Message will be inserted here -->
+                </div>
+                <div class="reminder-footer">
+                    <p class="reminder-emoji" id="reminderEmoji">💕</p>
+                </div>
+            </div>
+        </div>    </div>
 
     <!-- Cursor Sparkles -->
     <div class="sparkles-container" id="sparklesContainer"></div>
 
-    <script src="script.js"></script>
+    <script src="script-enhanced.js"></script>
 </body>
 </html>
