@@ -16,7 +16,6 @@ let isPlaying = false;
 
 function initializeAudio() {
     const soundToggle = document.getElementById('soundToggle');
-    const bgMusic = document.getElementById('bgMusic');
     
     // Create simple dreamy background music using Web Audio API
     createDreamyMusic();
@@ -305,15 +304,18 @@ window.addEventListener('scroll', function() {
 // ===================================
 // INTERACTIVE CARD HOVER EFFECTS
 // ===================================
-document.querySelectorAll('.memory-card').forEach(card => {
-    card.addEventListener('mouseover', function() {
-        this.style.transform = 'translateY(-15px) rotateX(5deg)';
+// Only apply hover effects on devices that support hover (not touch devices)
+if (!window.matchMedia("(hover: none)").matches) {
+    document.querySelectorAll('.memory-card').forEach(card => {
+        card.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-15px) rotateX(5deg)';
+        });
+        
+        card.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0) rotateX(0deg)';
+        });
     });
-    
-    card.addEventListener('mouseout', function() {
-        this.style.transform = 'translateY(0) rotateX(0deg)';
-    });
-});
+}
 
 // ===================================
 // ADD HEART ANIMATION TO SPECIFIC ELEMENTS
