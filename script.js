@@ -66,15 +66,13 @@ function playMusic() {
     // Play dreamy ambient tones
     if (window.audioContext && window.createDreamyTone) {
         const notes = [261.63, 329.63, 392.00, 440.00]; // C, E, G, A
-        let delay = 0;
         
         const playLoop = () => {
             const note = notes[Math.floor(Math.random() * notes.length)];
             window.createDreamyTone(note, 2);
-            delay = setTimeout(playLoop, 3000);
+            window.musicLoop = setTimeout(playLoop, 3000);
         };
         
-        window.musicLoop = delay;
         playLoop();
     }
 }
