@@ -36,7 +36,7 @@ function initializeAudio() {
 
 function createDreamyMusic() {
     // Create Web Audio API context
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
     
     // Create oscillators for dreamy ambient sound
     const createDreamyTone = (frequency, duration = 5) => {
@@ -101,7 +101,7 @@ function initializeSparkles() {
 }
 
 function createSparkle(x, y) {
-    const sparklesContainer = document.getElementById('sparklsContainer');
+    const sparklesContainer = document.getElementById('sparklesContainer');
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
     

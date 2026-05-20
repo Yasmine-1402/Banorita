@@ -173,11 +173,6 @@ nav a:hover:after {
 }
 
 /* 5. HANDWRITTEN-STYLE LETTERS */
-@font-face {
-  font-family: 'HandWritten';
-  src: url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
-}
-
 .handwritten-letter {
   font-family: 'Caveat', cursive;
   font-size: 1.3rem;
@@ -412,6 +407,7 @@ nav a:hover:after {
   width: 10px;
   height: 10px;
   pointer-events: none;
+  background: var(--confetti-color, var(--pastel-pink));
   animation: confetti-fall 3s ease-out forwards;
 }
 
@@ -657,6 +653,17 @@ footer {
 
 .fade-in {
   animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Slide in animation */
